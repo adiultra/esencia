@@ -71,6 +71,7 @@ $font-sans: "Raleway", "Open Sans", "Roboto", sans;
 @mixin subheading($size) {
     @include heading($size);
     padding: 3% 0%;
+    margin: 0%;
     font-weight: lighter;
 }
 
@@ -78,6 +79,7 @@ $font-sans: "Raleway", "Open Sans", "Roboto", sans;
     margin: 1% 1%;
 
     text-align: center;
+    line-height: 3em;
 
     a{
         &.main-button{ @include button($main-color); };
@@ -90,11 +92,13 @@ $font-sans: "Raleway", "Open Sans", "Roboto", sans;
 
         &.cyan-button{ @include button($cyan); };
 
-        &.yellow-button{ @include button($yellow); };
+        &.yellow-button{ @include button(darken($yellow, 10%)); };
 
         &.teal-button{ @include button($teal); };
 
         &.black-button{ @include button($dark-grey); };
+
+        margin: 2%;
     }
 
     h1{ @include subheading(2em); }
@@ -246,6 +250,10 @@ html{
 
 
                 }
+            }
+
+            pre{
+                font-size: 1.2em;
             }
 
             img{
