@@ -3,11 +3,7 @@ Created by adiultra for esencia
 */
 
 
-// ██    ██  █████  ██████  ██  █████  ██████  ██      ███████ ███████
-// ██    ██ ██   ██ ██   ██ ██ ██   ██ ██   ██ ██      ██      ██
-// ██    ██ ███████ ██████  ██ ███████ ██████  ██      █████   ███████
-//  ██  ██  ██   ██ ██   ██ ██ ██   ██ ██   ██ ██      ██           ██
-//   ████   ██   ██ ██   ██ ██ ██   ██ ██████  ███████ ███████ ███████
+// Variables
 
 
 $blue: rgb(28, 162, 237);
@@ -29,12 +25,14 @@ $shadow: rgba(0, 0, 0, 0.25);
 
 $font-sans: "Raleway", "Open Sans", "Roboto", sans;
 
+// Media Queries
 
-// ███    ███ ██ ██   ██ ██ ███    ██ ███████
-// ████  ████ ██  ██ ██  ██ ████   ██ ██
-// ██ ████ ██ ██   ███   ██ ██ ██  ██ ███████
-// ██  ██  ██ ██  ██ ██  ██ ██  ██ ██      ██
-// ██      ██ ██ ██   ██ ██ ██   ████ ███████
+$mobile: "(max-width: 720px), handheld and (orientation: portrait)";
+$tablet: "(max-width: 1280px), handheld and (orientation: landscape)";
+$desktop: "(min-width: 720px), screen and (orientation: landscape)";
+
+
+// Mixins
 
 @mixin button($color) {
     margin: 0% 2%;
@@ -49,7 +47,9 @@ $font-sans: "Raleway", "Open Sans", "Roboto", sans;
     border-bottom: solid 0.2em darken($color, 20%);
     border-radius: 4px;
     background-color: $color;
-
+    @media #{$mobile}{
+        font-size: 1.4em;
+    }
     &:hover{
         box-shadow: 0px 8px 16px $shadow;
     }
@@ -115,6 +115,9 @@ $font-sans: "Raleway", "Open Sans", "Roboto", sans;
 html{
     font-family: $font-sans;
     font-size: 1.2em;
+    @media #{$mobile}{
+        font-size: 0.8em;
+    }
 
     body{
         margin: 0px;
@@ -134,9 +137,14 @@ html{
                 @include heading(8em);
 
                 font-weight: lighter;
+                @media #{$mobile}{
+                    font-size: 6em;
+                }
             }
 
-            h3{ @include heading(1.3em); }
+            h3{
+                @include heading(1.3em);
+            }
         }
 
         .menu{
@@ -150,11 +158,14 @@ html{
 
             ul{
                 margin: 0;
+                padding: 0;
 
                 list-style: none;
 
                 text-align: center;
-
+                @media #{$mobile}{
+                    padding: 2% 0;
+                }
                 li{
                     display: inline;
 
@@ -187,7 +198,12 @@ html{
             padding: 5% 20%;
 
             border-bottom: solid 16px $main-color;
-
+            @media #{$mobile}{
+                padding: 4% 2%;
+            }
+            @media #{$tablet}{
+                padding: 4% 8%;
+            }
             p{
                 text-indent: 2em;
 
