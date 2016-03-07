@@ -275,6 +275,9 @@ html{
 
                         font-size: 1.4em;
                         font-weight: normal;
+                        @media #{$mobile}{
+                            padding: 2% 0;
+                        }
                     }
                 }
 
@@ -290,11 +293,12 @@ html{
 
                 }
                 &.feature-list{
+                    width: 100%;
                     tbody{
                         tr{
                             td{
                                 border: none;
-                                padding-bottom: 2%;
+                                padding: 2% 0;
 
                                 img{
                                     text-align: left;
