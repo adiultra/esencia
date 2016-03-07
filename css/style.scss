@@ -73,43 +73,6 @@ $desktop: "(orientation: landscape)";
     }
 }
 
-@mixin subheading($size) {
-    @include heading($size);
-    padding: 3% 0%;
-    margin: 0%;
-    @media #{$mobile}{
-        margin-top: 8%;
-    }
-}
-
-@mixin seperate {
-    margin: 1% 1%;
-
-    text-align: center;
-    line-height: 3em;
-
-    a{
-        &.main-button{ @include button($main-color); };
-
-        &.blue-button{ @include button($blue); };
-
-        &.red-button{ @include button($red); };
-
-        &.green-button{ @include button($green); };
-
-        &.cyan-button{ @include button($cyan); };
-
-        &.yellow-button{ @include button(darken($yellow, 10%)); };
-
-        &.teal-button{ @include button($teal); };
-
-        &.black-button{ @include button($dark-grey); };
-
-        margin: 2%;
-    }
-
-    h1{ @include subheading(2em); }
-}
 
 
 // ███████ ████████ ██    ██ ██      ███████
@@ -244,7 +207,32 @@ html{
                 background-color: lighten($light, 6);
             }
 
-            .button-wrapper{ @include seperate; }
+            .button-wrapper{
+                margin: 1% 1%;
+
+                text-align: center;
+                line-height: 3em;
+
+                a{
+                    &.main-button{ @include button($main-color); };
+
+                    &.blue-button{ @include button($blue); };
+
+                    &.red-button{ @include button($red); };
+
+                    &.green-button{ @include button($green); };
+
+                    &.cyan-button{ @include button($cyan); };
+
+                    &.yellow-button{ @include button(darken($yellow, 10%)); };
+
+                    &.teal-button{ @include button($teal); };
+
+                    &.black-button{ @include button($dark-grey); };
+
+                    margin: 2%;
+                }
+            }
 
             table{
                 overflow: hidden;
