@@ -22,8 +22,10 @@ $dark: rgb(30, 37, 45);
 $main-color: $blue;
 
 $shadow: rgba(0, 0, 0, 0.25);
+$shadow-dark: rgba(0, 0, 0, 0.5);
 
 $font-sans: "Raleway", "Open Sans", "Roboto", sans;
+$font-color: $dark-grey;
 
 // Media Queries
 
@@ -207,6 +209,7 @@ html{
 
         .page{
             padding: 5% 20%;
+            color: $font-color;
 
             border-bottom: solid 16px $main-color;
             @media #{$mobile}{
@@ -290,10 +293,10 @@ html{
                 }
                 &.screen-shot{
                     padding: 0%;
-                    box-shadow: 0px 10px 20px $shadow;
-                    &:hover{
-                        box-shadow: 0px 10px 20px $shadow;
-                    }
+                    box-shadow: 0px 10px 20px $shadow-dark;
+                    border-radius: 4px;
+
+                    &:hover{ box-shadow: 0px 10px 20px $shadow-dark; }
                 }
             }
         }
