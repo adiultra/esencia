@@ -184,6 +184,7 @@ html{
                 font-size: 1.2em;
 
                 line-height: 1.5;
+
             }
 
             h1{ @include heading(2.4em); }
@@ -234,6 +235,29 @@ html{
                 }
             }
 
+
+            pre{
+                font-size: 1.2em;
+            }
+
+            img{
+                display: block;
+                width: 100%;
+                padding: 1%;
+                margin: auto;
+
+                &:hover{
+                    box-shadow: 0px 2px 6px $shadow;
+                }
+
+                &.screen-shot{
+                    padding: 0%;
+                    box-shadow: 0px 10px 20px $shadow-dark;
+                    border-radius: 4px;
+
+                    &:hover{ box-shadow: 0px 10px 20px $shadow-dark; }
+                }
+            }
             table{
                 overflow: hidden;
 
@@ -265,26 +289,32 @@ html{
 
 
                 }
-            }
+                &.feature-list{
+                    tbody{
+                        tr{
+                            td{
+                                border: none;
+                                padding-bottom: 2%;
 
-            pre{
-                font-size: 1.2em;
-            }
+                                img{
+                                    text-align: left;
+                                    border: 0 !important;
+                                    padding: 0 !important;
+                                    width: auto;
 
-            img{
-                display: block;
-                width: 100%;
-                padding: 1%;
-                margin: auto;
-                &:hover{
-                    box-shadow: 0px 2px 6px $shadow;
-                }
-                &.screen-shot{
-                    padding: 0%;
-                    box-shadow: 0px 10px 20px $shadow-dark;
-                    border-radius: 4px;
+                                    &:hover{ box-shadow: none; }
+                                }
 
-                    &:hover{ box-shadow: 0px 10px 20px $shadow-dark; }
+                                h1{
+                                    font-size: 2em;
+                                }
+
+                                p{
+                                    text-indent: 0;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
