@@ -13,9 +13,11 @@ $cyan: rgb(71, 221, 216);
 $teal: rgb(75, 236, 154);
 $yellow: rgb(245, 231, 106);
 
-$light: rgb(230, 230, 230);
-$grey: rgb(175, 175, 175);
+
 $white: rgb(255, 255, 255);
+$light: rgb(230, 230, 230);
+$light-grey: rgb(200, 200, 200);
+$grey: rgb(175, 175, 175);
 $dark-grey: rgb(46, 48, 50);
 $dark: rgb(30, 37, 45);
 
@@ -36,7 +38,7 @@ $desktop: "(orientation: landscape)";
 // Mixins
 
 @mixin button($color) {
-    margin: 0% 2%;
+    margin: 2%;
     padding: 1% 2%;
 
     transition: all 0.2s;
@@ -45,6 +47,7 @@ $desktop: "(orientation: landscape)";
     color: $white;
     border-radius: 4px;
 
+    border: none;
     border-bottom: solid 0.2em darken($color, 20%);
     border-radius: 4px;
     background-color: $color;
@@ -72,7 +75,30 @@ $desktop: "(orientation: landscape)";
         margin-top: 8%;
     }
 }
+@mixin special {
+    margin: 1% 1%;
 
+    text-align: center;
+    line-height: 3em;
+
+    a, input{
+        &.main-button{ @include button($main-color); };
+
+        &.blue-button{ @include button($blue); };
+
+        &.red-button{ @include button($red); };
+
+        &.green-button{ @include button($green); };
+
+        &.cyan-button{ @include button($cyan); };
+
+        &.yellow-button{ @include button(darken($yellow, 10%)); };
+
+        &.teal-button{ @include button($teal); };
+
+        &.black-button{ @include button($dark-grey); };
+    }
+}
 
 
 // ███████ ████████ ██    ██ ██      ███████
@@ -208,32 +234,7 @@ html{
                 background-color: lighten($light, 6);
             }
 
-            .button-wrapper{
-                margin: 1% 1%;
-
-                text-align: center;
-                line-height: 3em;
-
-                a{
-                    &.main-button{ @include button($main-color); };
-
-                    &.blue-button{ @include button($blue); };
-
-                    &.red-button{ @include button($red); };
-
-                    &.green-button{ @include button($green); };
-
-                    &.cyan-button{ @include button($cyan); };
-
-                    &.yellow-button{ @include button(darken($yellow, 10%)); };
-
-                    &.teal-button{ @include button($teal); };
-
-                    &.black-button{ @include button($dark-grey); };
-
-                    margin: 2%;
-                }
-            }
+            .button-wrapper{ @include special; }
 
 
             pre{
@@ -319,6 +320,27 @@ html{
                             }
                         }
                     }
+                }
+            }
+            fieldset{
+                text-align: center;
+                border: none;
+                border-top: solid 4px $main-color;
+                legend{
+                    font-size: 2em;
+                }
+                form{
+                    @include special;
+                    font-size: 0.8em;
+                    input{
+                        font-size: 1em;
+                        border: 1px solid $light-grey;
+                        margin: 1% 2% 2%;
+                        &:active, &:focus{
+                            border: 1px solid $main-color;
+                        }
+                    }
+                    line-height: 1.5em;
                 }
             }
         }
